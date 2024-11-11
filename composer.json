@@ -1,0 +1,43 @@
+{
+    "name": "coopsymbiotic/aegir-on-backdrop",
+    "authors": [
+        {
+            "name": "Coop Symbiotic",
+            "email": "info@symbiotic.coop"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "installer-paths": {
+            "web/modules/{$name}": [
+                "type:drupal-module"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mlutfy/hosting.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mlutfy/hosting_tasks_extra.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/mlutfy/hosting_civicrm.git"
+        }
+    ],
+    "require" : {
+       "composer/installers": "^2.0",
+       "mlutfy/hosting" : "dev-symbiotic",
+       "mlutfy/hosting_tasks_extra" : "dev-symbiotic",
+       "mlutfy/hosting_civicrm" : "dev-symbiotic"
+    }
+}
