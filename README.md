@@ -8,6 +8,8 @@ Aegir runs on BackdropCMS, an actively maintained fork of Drupal7.
 Why? Because it was much less work than porting to Drupal10+.
 [More background information](https://www.bidon.ca/random/2024-10-02-aegir-drupal10-backdrop/)
 
+License: GPLv2, see LICENSE.txt
+
 ## Disclaimer
 
 This is work in progress. Do not expect it to work or to be stable.
@@ -36,6 +38,7 @@ Requirements:
 
 * Setup a new VM running Debian stable (bookworm, as of this writing)
 * Install nginx, php-fpm and MariaDB (apache and mysql are untested)
+* Install composer in a global path (https://getcomposer.org/)
 * Tested on PHP 8.2
 * Create a unix user called "aegir"
 
