@@ -23,6 +23,10 @@
     "repositories": [
         {
             "type": "vcs",
+            "url": "https://github.com/coopsymbiotic/aegir_ansible.git"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/mlutfy/hosting.git"
         },
         {
@@ -32,12 +36,18 @@
         {
             "type": "vcs",
             "url": "https://github.com/mlutfy/hosting_civicrm.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/coopsymbiotic/hosting_civicrm_ansible.git"
         }
     ],
     "require" : {
        "composer/installers": "^2.0",
+       "coopsymbiotic/aegir_ansible" : "dev-main",
        "mlutfy/hosting" : "dev-symbiotic",
        "mlutfy/hosting_tasks_extra" : "dev-symbiotic",
-       "mlutfy/hosting_civicrm" : "dev-symbiotic"
+       "mlutfy/hosting_civicrm" : "dev-symbiotic",
+       "coopsymbiotic/hosting_civicrm_ansible" : "dev-master"
     }
 }
