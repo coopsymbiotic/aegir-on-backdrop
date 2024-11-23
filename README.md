@@ -47,13 +47,22 @@ $ sudo adduser --system --group --home /var/aegir aegir
 $ sudo adduser aegir www-data  #make aegir a user of group www-data
 ```
 
-See: https://docs.aegirproject.org/install/#2-install-system-requirements
+See also: https://docs.aegirproject.org/install/#2-install-system-requirements
 
 Then install the 'bee' CLI utility somewhere global, ex:
 
 ```
 # wget https://github.com/backdrop-contrib/bee/releases/download/1.x-1.1.0/bee.phar -O /usr/local/bin/bee
 # chmod 0755 /usr/local/bin/bee
+```
+
+Install the Ansible bits:
+
+```
+# apt install ansible-core python3-pymysql
+# ansible-galaxy collection install community.mysql
+# cd /usr/local
+# git clone https://github.com/coopsymbiotic/coopsymbiotic-ansible.git
 ```
 
 Now deploy Aegir on Backdrop:
@@ -113,7 +122,7 @@ Make sure that link has the correct hostname before copy-pasting in a browser (i
 
 Then create the basic resources:
 
-- Servers: create separate servers for "nginx" and "mysql" (it's not a big deal if you create only one with both services, but it might be confusing because they will have the same inventory name in Ansible)
+- Servers: create a server called "localhost" for "nginx" and "mysql" (assuming both services run locally, but mysql can also be remote)
 - Platform: add a platform that points to a codebase under `/var/aegir/platforms`
 - Sites: when the above is done, you are ready to create sites.
 
