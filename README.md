@@ -62,7 +62,8 @@ Install the Ansible bits:
 # apt install ansible-core python3-pymysql
 # ansible-galaxy collection install community.mysql
 # cd /usr/local
-# git clone https://github.com/coopsymbiotic/coopsymbiotic-ansible.git
+# git clone https://github.com/coopsymbiotic/aegir-ansible-playbooks.git
+# ln -s /usr/local/aegir-ansible-playbooks/bin/aegir-ansible /usr/local/bin/
 ```
 
 Now deploy Aegir on Backdrop:
