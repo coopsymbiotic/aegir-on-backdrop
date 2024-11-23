@@ -70,6 +70,7 @@ $ cd /var/aegir
 $ git clone https://github.com/coopsymbiotic/aegir-on-backdrop.git admin
 $ cd admin
 $ bee dl-core web
+$ bee dl views_bulk_operations
 $ composer install
 ```
 
@@ -83,6 +84,38 @@ $ drush @none hostmaster-install --root="/var/aegir/admin/web" \
 ```
 
 .. where `aegir_root` is a mysql user with grant permissions, and `aegir.example.org` is the expected frontend URL.
+
+And then you probably want to enable the hosting-queue daemon:
+
+```
+cd /var/aegir/admin/web
+bee en hosting_queued
+```
+
+The `hosting_queued` module provides a small daemon that can be managed by systemd (see: `hosting/queue/hosting-queued.service.example`). It runs the tasks that are created while using the Aegir frontend (ex: install a site, verify, backup, etc). Those tasks are run as background tasks (daemon) because they require more privileges than what the web user usually has, and they might take more than 30-60 seconds to run, so this would clog up web PHP processes and cause timeouts.
+
+You can also run it from the command line as the `aegir` user (not root!):
+
+```
+cd /var/aegir/admin/web
+bee hosting-queued
+```
+
+Now you can login to Aegir:
+
+
+```
+cd /var/aegir/admin/web
+bee uli
+```
+
+Make sure that link has the correct hostname before copy-pasting in a browser (it might be 'web', todo).
+
+Then create the basic resources:
+
+- Servers: create separate servers for "nginx" and "mysql" (it's not a big deal if you create only one with both services, but it might be confusing because they will have the same inventory name in Ansible)
+- Platform: add a platform that points to a codebase under `/var/aegir/platforms`
+- Sites: when the above is done, you are ready to create sites.
 
 ## Support
 
