@@ -39,6 +39,7 @@ Requirements:
 * Setup a new VM running Debian stable (bookworm, as of this writing)
 * Install nginx, php-fpm and MariaDB (apache and mysql are untested)
 * Install composer in a global path (https://getcomposer.org/)
+* For letsencrypt https support, `apt install dehydrated`
 * Tested on PHP 8.2
 * Create a unix user called "aegir"
 
