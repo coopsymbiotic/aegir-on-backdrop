@@ -37,55 +37,33 @@ Part of the motivation to drop these features was to make the code easier to mai
 Requirements:
 
 * Setup a new VM running Debian stable (bookworm, as of this writing)
-* Install nginx, php-fpm and MariaDB (apache and mysql are untested)
-* Install composer in a global path (https://getcomposer.org/)
-* For letsencrypt https support, `apt install dehydrated`
+* Install php-fpm and MariaDB (apache and mysql are untested)
 * Tested on PHP 8.2
-* Create a unix user called "aegir"
-
-```
-$ sudo adduser --system --group --home /var/aegir aegir
-$ sudo adduser aegir www-data  #make aegir a user of group www-data
-```
-
-See also: https://docs.aegirproject.org/install/#2-install-system-requirements
-
-Then install the 'bee' CLI utility somewhere global, ex:
-
-```
-# wget https://github.com/backdrop-contrib/bee/releases/download/1.x-1.1.0/bee.phar -O /usr/local/bin/bee
-# chmod 0755 /usr/local/bin/bee
-```
 
 Install the Ansible bits:
 
 ```
-# apt install ansible-core python3-pymysql
+# apt install ansible-core
 # ansible-galaxy collection install community.mysql
 # cd /usr/local
 # git clone https://github.com/coopsymbiotic/aegir-ansible-playbooks.git
 # ln -s /usr/local/aegir-ansible-playbooks/bin/aegir-ansible /usr/local/bin/
 ```
 
-Now deploy Aegir on Backdrop:
+Now run Ansible to do some of the setup:
 
 ```
-$ sudo -i -u aegir
-$ cd /var/aegir
-# Clone our fork of Provision
-$ mkdir .drush
-$ cd .drush
-$ git clone https://github.com/mlutfy/provision.git
-# Now clone the admin frontend (formerly hostmaster)
-$ cd /var/aegir
-$ git clone https://github.com/coopsymbiotic/aegir-on-backdrop.git admin
-$ cd admin
-$ bee dl-core web
-$ bee dl views_bulk_operations
-$ composer install
+# cd /usr/local/aegir-ansible-playbooks
+# ansible-playbook ./aegir/admin/install.yml
 ```
 
-Lanch the Aegir installation:
+The above will:
+
+- Install the nginx, dehydrated and some other packages
+- Create the aegir unix user
+- Download the code necessary for the admin UI (or what Aegir calls "hostmaster")
+
+Fixme - Lanch the Aegir installation - this will be launched by Ansible, the following will not work, because we do not need provision anymore.
 
 ```
 $ cd /var/aegir/admin
