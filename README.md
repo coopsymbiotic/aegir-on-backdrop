@@ -74,6 +74,15 @@ $ drush @none hostmaster-install --root="/var/aegir/admin/web" \
 
 .. where `aegir_root` is a mysql user with grant permissions, and `aegir.example.org` is the expected frontend URL.
 
+Enable hosting modules (bee does not seem to enable dependencies, and they are somewhat circular here because of views classes):
+
+```
+cd /var/aegir/admin/web
+bee en views views_bulk_operations
+bee en --no-dependency-checking hosting hosting_client hosting_platform hosting_package
+bee en aegir_ansible_inventory
+```
+
 And then you probably want to enable the hosting-queue daemon:
 
 ```
