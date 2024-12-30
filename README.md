@@ -63,23 +63,12 @@ The above will:
 - Create the aegir unix user
 - Download the code necessary for the admin UI (or what Aegir calls "hostmaster")
 
-Fixme - Lanch the Aegir installation - this will be launched by Ansible, the following will not work, because we do not need provision anymore.
-
-```
-$ cd /var/aegir/admin
-$ drush @none hostmaster-install --root="/var/aegir/admin/web" \
-  --http_service_type=nginx --aegir_db_host=localhost \
-  --aegir_db_user=aegir_root --aegir_db_pass=[...] aegir.example.org
-```
-
-.. where `aegir_root` is a mysql user with grant permissions, and `aegir.example.org` is the expected frontend URL.
-
 Enable hosting modules (bee does not seem to enable dependencies, and they are somewhat circular here because of views classes):
 
 ```
 cd /var/aegir/admin/web
 bee en views views_bulk_operations
-bee en --no-dependency-checking hosting hosting_client hosting_platform hosting_package
+bee en --no-dependency-checking hosting hosting_platform hosting_package
 bee en aegir_ansible_inventory
 ```
 
