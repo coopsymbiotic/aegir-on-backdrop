@@ -98,11 +98,22 @@ bee uli
 
 Make sure that link has the correct hostname before copy-pasting in a browser (it might be 'web', todo).
 
+You may find it useful to set the default home page to `hosting/sites` (list of sites), under Configuration > System > Site Information.
+
 Then create the basic resources:
 
 - Servers: create a server called "localhost" for "nginx" and "mysql" (assuming both services run locally, but mysql can also be remote)
 - Platform: add a platform that points to a codebase under `/var/aegir/platforms`
 - Sites: when the above is done, you are ready to create sites.
+
+You can also manage Aegir with Aegir, by adding the platform, then adding the site (fixme: do we need to set the password?). This is partially automated by running:
+
+```
+cd /var/aegir/admin/web
+bee hosting-platform-setup-aegir
+```
+
+You will still need to edit the "localhost" server, and enable MySQL.
 
 ## Support
 
