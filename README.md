@@ -44,11 +44,13 @@ Install the Ansible bits:
 
 ```
 # apt install ansible-core
-# ansible-galaxy collection install community.mysql
+# ansible-galaxy collection install community.mysql ansible.posix:1.6.1
 # cd /usr/local
 # git clone https://github.com/coopsymbiotic/aegir-ansible-playbooks.git
 # ln -s /usr/local/aegir-ansible-playbooks/bin/aegir-ansible /usr/local/bin/
 ```
+
+(forcing ansible.posix:1.6.1 is required when using Ansible 2.14, which is what Debian 12/bookworm ships)
 
 Now run Ansible to do some of the setup:
 
