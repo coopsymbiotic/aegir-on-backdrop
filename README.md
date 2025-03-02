@@ -61,7 +61,7 @@ Now run Ansible to do some of the setup:
 
 The above will:
 
-- Install the nginx, dehydrated and some other packages
+- Install nginx, dehydrated and some other packages (although it does not install php-fpm, since you probably want to configure sury.org and run a specific version)
 - Create the aegir unix user
 - Download the code necessary for the admin UI (or what Aegir calls "hostmaster")
 
