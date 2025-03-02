@@ -70,7 +70,7 @@ Enable hosting modules (bee does not seem to enable dependencies, and they are s
 ```
 cd /var/aegir/admin/web
 bee en views views_bulk_operations
-bee en --no-dependency-checking hosting hosting_platform hosting_package hosting_site aegir_ansible_inventory
+bee en --no-dependency-checking hosting hosting_platform hosting_package hosting_site hosting_db_server hosting_server hosting_web_server hosting_nginx hosting_clone hosting_alias hosting_migrate hosting_queued hosting_task aegir_ansible_inventory
 ```
 
 And then you probably want to enable the hosting-queue daemon:
