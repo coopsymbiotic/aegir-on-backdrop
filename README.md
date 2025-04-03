@@ -44,11 +44,13 @@ Install the Ansible bits:
 
 ```
 # apt install ansible-core
-# ansible-galaxy collection install community.mysql
+# ansible-galaxy collection install community.mysql ansible.posix:1.6.1
 # cd /usr/local
 # git clone https://github.com/coopsymbiotic/aegir-ansible-playbooks.git
 # ln -s /usr/local/aegir-ansible-playbooks/bin/aegir-ansible /usr/local/bin/
 ```
+
+(forcing ansible.posix:1.6.1 is required when using Ansible 2.14, which is what Debian 12/bookworm ships)
 
 Now run Ansible to do some of the setup:
 
@@ -59,7 +61,7 @@ Now run Ansible to do some of the setup:
 
 The above will:
 
-- Install the nginx, dehydrated and some other packages
+- Install nginx, dehydrated and some other packages (although it does not install php-fpm, since you probably want to configure sury.org and run a specific version)
 - Create the aegir unix user
 - Download the code necessary for the admin UI (or what Aegir calls "hostmaster")
 
@@ -68,8 +70,7 @@ Enable hosting modules (bee does not seem to enable dependencies, and they are s
 ```
 cd /var/aegir/admin/web
 bee en views views_bulk_operations
-bee en --no-dependency-checking hosting hosting_platform hosting_package
-bee en aegir_ansible_inventory
+bee en --no-dependency-checking hosting hosting_platform hosting_package hosting_site hosting_db_server hosting_server hosting_web_server hosting_nginx hosting_clone hosting_alias hosting_migrate hosting_queued hosting_task aegir_ansible_inventory
 ```
 
 And then you probably want to enable the hosting-queue daemon:
