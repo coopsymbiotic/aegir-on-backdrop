@@ -40,6 +40,15 @@ Requirements:
 * Install php-fpm and MariaDB (apache and mysql are untested)
 * Tested on PHP 8.2
 
+The installer assumes that root has passwordless access to MySQL, which is the default since Debian 12 (bookworm). You can test this by typing `mysql` as root, it should not require a password.
+
+To enable:
+
+```
+# mysql -u root -p
+mysql> grant usage on *.* to 'root'@'localhost' identified via unix_socket;
+```
+
 Install the Ansible bits:
 
 ```
