@@ -1,11 +1,8 @@
-# Aegir on BackdropCMS
+# Aegir on BackdropCMS and Ansible
 
-Port of the Aegir hosting system to the BackdropCMS.
+Port of the Aegir 3.x hosting system to the BackdropCMS, using Ansible as the
+backend for deploying configurations (instead of drush).
 
-The original Aegir version 3.x uses Drupal7 as the web interface. This port of
-Aegir runs on BackdropCMS, an actively maintained fork of Drupal7.
-
-Why? Because it was much less work than porting to Drupal10+.
 [More background information](https://www.bidon.ca/random/2024-10-02-aegir-drupal10-backdrop/)
 
 License: GPLv2, see LICENSE.txt
