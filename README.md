@@ -125,6 +125,12 @@ bee hosting-platform-setup-aegir
 
 You will still need to edit the "localhost" server, and enable MySQL.
 
+For https, make sure there is a cron setup for dehydrated (the ACME client). Ex, in `/etc/cron.d/dehydrated`:
+
+```
+20 2 * * * root dehydrated -c >/dev/null
+```
+
 ## Support
 
 Commercial support available from Coop Symbiotic: https://www.symbiotic.coop/en/contact
