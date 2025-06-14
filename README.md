@@ -78,7 +78,8 @@ Enable hosting modules (bee does not seem to enable dependencies, and they are s
 
 ```
 cd /var/aegir/admin/web
-bee en views views_bulk_operations
+bee dl entity_plus views_bulk_operations
+bee en views entity_plus views_bulk_operations
 bee en --no-dependency-checking hosting hosting_platform hosting_package hosting_site hosting_db_server hosting_server hosting_web_server hosting_nginx hosting_clone hosting_alias hosting_migrate hosting_queued hosting_task aegir_ansible_inventory
 ```
 
@@ -106,9 +107,7 @@ cd /var/aegir/admin/web
 bee uli
 ```
 
-Make sure that link has the correct hostname before copy-pasting in a browser (it might be 'web', todo).
-
-You may find it useful to set the default home page to `hosting/sites` (list of sites), under Configuration > System > Site Information.
+Make sure that link has the correct hostname before copy-pasting in a browser. This will be fixed later when the site is managed by Aegir. For a workaround, see: https://github.com/coopsymbiotic/aegir-ansible-playbooks/commit/fd3733971fb47ccc6f130567baa5da6d5e501e3b
 
 Then create the basic resources:
 
