@@ -31,10 +31,6 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/mlutfy/hosting_tasks_extra.git"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/coopsymbiotic/hosting_civicrm_ansible.git"
         }
     ],
@@ -42,7 +38,6 @@
        "composer/installers": "^2.0",
        "coopsymbiotic/aegir_ansible" : "dev-main",
        "mlutfy/hosting" : "dev-symbiotic",
-       "mlutfy/hosting_tasks_extra" : "dev-symbiotic",
        "coopsymbiotic/hosting_civicrm_ansible" : "dev-master"
     }
 }
