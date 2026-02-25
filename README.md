@@ -33,7 +33,7 @@ Part of the motivation to drop these features was to make the code easier to mai
 
 Requirements:
 
-* Setup a new VM running Debian stable (bookworm, as of this writing)
+* Setup a new VM running Debian stable (trixie, as of this writing)
 * Install php-fpm and MariaDB (apache and mysql are untested)
 * Tested on PHP 8.2
 
